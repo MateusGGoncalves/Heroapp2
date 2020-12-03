@@ -1,6 +1,8 @@
 import React from 'react';
 import {api} from '../Services/api';
 import './Hero.css';
+import getRandom from './getRandom.js'
+
 
 export default class PersonList extends React.Component {
   state = {
@@ -12,7 +14,7 @@ export default class PersonList extends React.Component {
   }
 
   componentDidMount() {
-    api.get('/502')
+    api.get(getRandom())
       .then(res => {
         const heroes = res.data;
         const imagem = res.data.image;
